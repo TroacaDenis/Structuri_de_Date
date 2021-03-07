@@ -3,5 +3,7 @@
 using namespace std;
 
 int main(){
-    cout << "merge";
+    int a;
+    cin >> a;
+    cout << a;
 }
