@@ -1,4 +1,6 @@
 #include<iostream>
+#include <stdlib.h>
+#include <time.h>
 using namespace std;
 ///1
 void bubble_sort(int n, int v[]){
@@ -86,17 +88,106 @@ void radix_sort(int n,int v[]){
     for(int i=1;i<n;i++)
         if(v[i]>maxim)
             maxim=v[i];
-    for(int p=1;p<=maxim;p=p*10){
+    for(int p=1;p<=maxim;p=p*10)
         counting_sort(n,v,p);
 
 }
+///5
+int pivot(int st, int dr, int v[]){
+    srand(time(0));
+    int a,b,c,k;
+    k=dr-st+1;
+    a=rand()%k+st;
+    b=rand()%k+st;
+    c=rand()%k+st;
+    if(v[a]>v[b]){
+        if(v[a]<v[c])
+            return v[a];
+        if(v[b]>v[c])
+            return v[b];
+        return v[c];
+    }
+    if(v[b]<v[c])
+        return v[b];
+    if(v[a]>v[c])
+        return v[a];
+    return v[c];
+}
+int partition(int st, int dr, int p, int v[]){
+    while(st<dr){
+        while(v[st]<p)
+            st++;
+        while(v[dr]>p)
+            dr--;
+        if(st<dr)
+            swap(v[st],v[dr]);
+    }
+    return st;
+}
+void quick_sort(int st, int dr, int v[]){
+    if(st<dr){
+        int p=v[(st+dr)/2];
+        ///int p=pivot(st, dr, v);
+        int k=partition(st, dr, p, v);
+        quick_sort(st,k-1,v);
+        quick_sort(k+1,dr,v);
+    }
+}
 
 int main(){
-    int n,v[100];
+    int n,k,maxim,v[100001];
+    time_t time_start,time_stop;
     cin>>n;
     for(int i=0;i<n;i++)
         cin>>v[i];
-    radix_sort(n,v);
+    quick_sort(0,n-1,v);
     for(int i=0;i<n;i++)
         cout<<v[i]<<" ";
+    /*cin>>k;
+    for(int i=1;i<=k;i++){
+        cin>>n>>maxim;
+        cout<<"n="<<n<<" maxim="<<maxim<<'\n';
+        srand(time(0));
+        ///bubble sort
+        for(i=0;i<n;i++){
+            v[i]=rand()%(maxim+1);
+        }
+            time_start=time();
+            bubble_sort(n,v);
+            time_stop=time();
+            cout<<"bubble sort: "<<time_stop-time_start<<'\n';
+        ///merge sort
+        for(i=0;i<n;i++){
+            v[i]=rand()%(maxim+1);
+        }
+            time_start=time();
+            merge_sort(0,n-1,v);
+            time_stop=time();
+            cout<<"merge sort: "<<time_stop-time_start<<'\n';
+        ///count sort
+        for(i=0;i<n;i++){
+            v[i]=rand()%(maxim+1);
+        }
+            time_start=time();
+            count_sort(n,v);
+            time_stop=time();
+            cout<<"count sort: "<<time_stop-time_start<<'\n';
+        ///radix sort
+        for(i=0;i<n;i++){
+            v[i]=rand()%(maxim+1);
+        }
+            time_start=time();
+            radix_sort(n,v);
+            time_stop=time();
+            cout<<"radix sort: "<<time_stop-time_start<<'\n';
+        ///quick sort
+        for(i=0;i<n;i++){
+            v[i]=rand()%(maxim+1);
+        }
+            time_start=time();
+            quick_sort(0,n-1,v);
+            time_stop=time();
+            cout<<"quick sort: "<<time_stop-time_start<<'\n';
+    }
+    */
 }
