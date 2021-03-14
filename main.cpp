@@ -157,13 +157,13 @@ int main(){
         auto time_start = high_resolution_clock::now();
         sort(aux1, aux1+n[i]);
         auto time_stop = high_resolution_clock::now();
-        cout<<"Sort: "<<(duration_cast<microseconds>(time_stop - time_start)).count()<<'\n';
+        cout<<"Sort: "<<(duration_cast<microseconds>(time_stop - time_start)).count()<<" microseconds"<<'\n';
 
         ///bubble sort
         auto time_start1 = high_resolution_clock::now();
         bubble_sort(n[i], aux2);
         auto time_stop1 = high_resolution_clock::now();
-        cout<<"bubble sort: "<<(duration_cast<microseconds>(time_stop1 - time_start1)).count()<<'\n';
+        cout<<"bubble sort: "<<(duration_cast<microseconds>(time_stop1 - time_start1)).count()<<" microseconds"<<'\n';
         ok=1;
         for(int j=0;j<n[i];j++){
             if(aux1[j]!=aux2[j]){
@@ -178,7 +178,7 @@ int main(){
         auto time_start2 = high_resolution_clock::now();
         merge_sort(0,n[i]-1, aux2);
         auto time_stop2 = high_resolution_clock::now();
-        cout<<"merge sort: "<<(duration_cast<microseconds>(time_stop2 - time_start2)).count()<<'\n';
+        cout<<"merge sort: "<<(duration_cast<microseconds>(time_stop2 - time_start2)).count()<<" microseconds"<<'\n';
         ok=1;
         for(int j=0;j<n[i];j++){
             if(aux1[j]!=aux2[j]){
@@ -193,7 +193,7 @@ int main(){
         auto time_start3 = high_resolution_clock::now();
         count_sort(n[i], aux2);
         auto time_stop3 = high_resolution_clock::now();
-        cout<<"count sort: "<<(duration_cast<microseconds>(time_stop3 - time_start3)).count()<<'\n';
+        cout<<"count sort: "<<(duration_cast<microseconds>(time_stop3 - time_start3)).count()<<" microseconds"<<'\n';
         ok=1;
         for(int j=0;j<n[i];j++){
             if(aux1[j]!=aux2[j]){
@@ -208,7 +208,7 @@ int main(){
         auto time_start4 = high_resolution_clock::now();
         radix_sort(n[i], aux2);
         auto time_stop4 = high_resolution_clock::now();
-        cout<<"radix sort: "<<(duration_cast<microseconds>(time_stop4 - time_start4)).count()<<'\n';
+        cout<<"radix sort: "<<(duration_cast<microseconds>(time_stop4 - time_start4)).count()<<" microseconds"<<'\n';
         ok=1;
         for(int j=0;j<n[i];j++){
             if(aux1[j]!=aux2[j]){
@@ -223,7 +223,7 @@ int main(){
         auto time_start5 = high_resolution_clock::now();
         quick_sort(0, n[i]-1, aux2);
         auto time_stop5 = high_resolution_clock::now();
-        cout<<"quick sort: "<<(duration_cast<microseconds>(time_stop5 - time_start5)).count()<<'\n';
+        cout<<"quick sort: "<<(duration_cast<microseconds>(time_stop5 - time_start5)).count()<<" microseconds"<<'\n';
         ok=1;
         for(int j=0;j<n[i];j++){
             if(aux1[j]!=aux2[j]){
