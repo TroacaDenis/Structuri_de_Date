@@ -139,10 +139,10 @@ void quick_sort(int st, int dr, int v[]){
 
 int main(){
     int n[]={1, 2, 5,  10, 10000, 100000, 10000, 100000};
-    int maxim[]={1000, 10, 10000, 10000000, 10000, 100000, 1000000000, 1000000};
+    int maxim[]={1000, 10, 10000, 10000000, 10000, 100000, 100000, 1000000};
     int ok=1;
     for(int i=0;i<=7;i++){
-        cout<<"Testul numarul "<<i<<", unde "<<"n="<<n[i]<<" maxim="<<maxim[i]<<'\n'<<'\n';
+        cout<<"Testul numarul "<<i+1<<", unde "<<"n="<<n[i]<<" maxim="<<maxim[i]<<'\n'<<'\n';
         srand(time(0));
         int v[n[i]];
         int aux1[n[i]];
