@@ -118,7 +118,8 @@ int pivot(int st, int dr, int v[]){
 void quick_sort(int st, int dr, int v[]){
     if(st<dr){
         int p=pivot(st, dr, v);
-        int aux[dr+1];
+        int * aux;
+        aux = new int [dr+1];
         int l,r;
         l=st;
         r=dr;
@@ -132,14 +133,15 @@ void quick_sort(int st, int dr, int v[]){
             aux[i]=p;
         for(int i=st;i<=dr;i++)
             v[i]=aux[i];
+        delete[]aux;
         quick_sort(st,l-1,v);
         quick_sort(r+1,dr,v);
     }
 }
 
 int main(){
-    int n[]={1, 2, 10,  100, 1000, 10000, 10000, 10000};
-    int maxim[]={1000, 10, 10000, 10000000, 10000, 100000, 1000000, 10000000};
+    int n[]={1, 2, 10,  100, 1000, 10000, 100000, 100000};
+    int maxim[]={1000, 10, 10000, 10000000, 10000, 10000, 1000000, 10000000};
     int ok=1;
     for(int i=0;i<=7;i++){
         cout<<"Testul numarul "<<i+1<<", unde "<<"n="<<n[i]<<" maxim="<<maxim[i]<<'\n'<<'\n';
