@@ -142,7 +142,7 @@ int main(){
     int maxim[]={1000, 10, 10000, 10000000, 10000, 100000, 1000000000, 1000000};
     int ok=1;
     for(int i=0;i<=7;i++){
-        cout<<"n="<<n[i]<<" maxim="<<maxim[i]<<'\n';
+        cout<<"Testul numarul "<<i<<", unde "<<"n="<<n[i]<<" maxim="<<maxim[i]<<'\n'<<'\n';
         srand(time(0));
         int v[n[i]];
         int aux1[n[i]];
@@ -154,10 +154,10 @@ int main(){
             aux2[j]=v[j];
         }
 
-        auto time_start1 = high_resolution_clock::now();
+        auto time_start = high_resolution_clock::now();
         sort(aux1, aux1+n[i]);
-        auto time_stop1 = high_resolution_clock::now();
-        cout<<"Sort: "<<(duration_cast<microseconds>(time_stop1 - time_start1)).count()<<'\n';
+        auto time_stop = high_resolution_clock::now();
+        cout<<"Sort: "<<(duration_cast<microseconds>(time_stop - time_start)).count()<<'\n';
 
         ///bubble sort
         auto time_start1 = high_resolution_clock::now();
